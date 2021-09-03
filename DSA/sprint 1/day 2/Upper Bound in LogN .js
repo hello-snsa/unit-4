@@ -3,40 +3,37 @@ function runProgram(input) {
     input = input.trim();
     var newInput = input.split("\n");
 
-    var arr = newInput[1].split(" ").map(Number);
     var data = newInput[0].split(" ").map(Number);
-    var N = data[0];
+    var arr = newInput[1].split(" ").map(Number);
     var K = data[1];
+    var N = data[0];
+    let check = [];
 
-    var isAvailable = -1;
-    // console.log(N,K)
+    var isAvailable = false;
+
 
     const fun = (arr, K, l, r) => {
+        if (l <= r) {
 
-        if (r >= l) {
+            let mid = l + Math.floor((r - l) / 2);
 
-            let mid = l + Math.floor((r - l) / 2)
+            if (K < arr[mid]) {
+                isAvailable = true;
+                check.push(mid);
+            }
 
-            if (arr[mid] == K) {
-                isAvailable = 1;
-                console.log(isAvailable);
-                return;
-            }
-            else if (arr[mid] > K) {
-                return fun(arr, K, l, mid - 1);
-            }
-            else {
-                return fun(arr, K, mid + 1, r);
-            }
+            fun(arr, K, l, mid - 1);//left side
+            fun(arr, K, mid + 1, r);//right side
         }
 
 
     }
 
-    let res = fun(arr, K, 0, N - 1);
+    fun(arr, K, 0, N - 1);
 
-    if (isAvailable != 1)
-        console.log(isAvailable);
+    check.sort();
+
+    console.log(check[0]);
 
 }//End of runProgram()
 
