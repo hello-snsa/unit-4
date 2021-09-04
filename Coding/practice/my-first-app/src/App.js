@@ -6,6 +6,7 @@ import List2 from './Components/list2';
 import Loops from './Components/loops';
 import Task from './Components/task';
 import Test1 from './Components/test1';
+import Test2 from './Components/Test2';
 
 function App() {
 
@@ -58,7 +59,10 @@ function App() {
       {/* Add Substract using UseState */}
       {/* < Clickable num={num} /> */}
 
-      <Task />
+      {/* <Task /> */}
+
+
+      <Test2 />
 
 
 
