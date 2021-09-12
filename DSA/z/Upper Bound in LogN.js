@@ -1,10 +1,3 @@
-
-// // index of 1st No. which is greater than k
-
-// var arr = [0, 2, 4, 4, 5, 5, 7, 7, 9, 10];
-// var len = 10;
-// var k = 4;
-// // k = 3;
 function runProgram(input) {
 
     input = input.trim();
@@ -12,41 +5,53 @@ function runProgram(input) {
 
     var data = newInput[0].split(" ").map(Number);
     var arr = newInput[1].split(" ").map(Number);
-    var len = data[0];
-    var k = data[1];
+    var K = data[1];
+    var N = data[0];
+    let check = [];
 
+    var isAvailable = false;
 
-    var res = -1;
-    var index;//if we want to find index also.
+    // console.log("data", data, K, N)
+    var i = 0;
 
-    const fun = (i, l) => {
+    const fun = (arr, K, l, r) => {
+        if (l <= r) {
+            i++;
+            // console.log("i val", i, l)
 
-        if (l >= i) {
-            let mid = Math.floor((i + k) / 2);
+            let mid = l + Math.floor((r - l) / 2);
+            // console.log("mid", mid, arr[mid])
 
-            if (arr[mid] k) {
-                res = 1;
-                index = mid + 1;
-                fun(mid + 1, l)
-
-                return;
+            // if (K < arr[mid]) {
+            //     i++;
+            //     return fun(arr, K, l, mid - 1);
+            // }else
+            if (K < arr[mid]) {
+                i++;
+                isAvailable = true;
+                // console.log("mid", mid);
+                check.push(mid);
+                // return;
             }
-            else if (arr[mid] > k) {
-            return fun(i, mid - 1);
+            fun(arr, K, l, mid - 1);
+            fun(arr, K, mid + 1, r);
+            i++;
+            // return fun(arr, K, mid + 1, r);
         }
-        else {
-            return fun(mid + 1, l)
-        }
+
+
     }
 
-}
-let i = 0;
-fun(i, len); //here i is the initial starting index;
+    fun(arr, K, 0, N - 1);
 
+    check.sort();
+    // console.log(check)
 
-
-console.log(index)
-
+    // if (!isAvailable)
+    //     console.log("-1");
+    // else {
+    console.log(check[0]);
+    // }
 
 }//End of runProgram()
 
@@ -66,5 +71,3 @@ process.on("SIGINT", function () {
     runProgram(read);
     process.exit(0);
 });//End of program
-
-

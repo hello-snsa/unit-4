@@ -8,17 +8,23 @@ function runProgram(input) {
     var K = data[1];
     var N = data[0];
 
+    var isAvailable = false;
+
+    var i = 0;
     var ans = -1;
 
     const fun = (arr, K, l, r) => {
         if (l <= r) {
+            i++;
 
             let mid = l + Math.floor((r - l) / 2);
 
             if (K < arr[mid]) {
+                i++;
                 return fun(arr, K, l, mid - 1);
             }
             else if (K == arr[mid]) {
+                i++;
                 isAvailable = true;
                 ans = mid;
                 fun(arr, K, l, mid - 1);//left side
@@ -27,6 +33,7 @@ function runProgram(input) {
             }
             else
                 fun(arr, K, mid + 1, r);//right side
+            i++;
         }
 
     }

@@ -60,5 +60,3 @@ process.on("SIGINT", function () {
     runProgram(read);
     process.exit(0);
 });//End of program
-
-

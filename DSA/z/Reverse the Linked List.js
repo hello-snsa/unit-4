@@ -1,4 +1,3 @@
-
 const LinkedListNode = class {
     constructor(nodeData) {
         this.data = nodeData;
@@ -22,6 +21,3 @@ function reverse(head) {
     head = prev;
     return head;
 }
-
-
-

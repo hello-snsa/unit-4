@@ -1,37 +1,24 @@
-function runProgram(input) {
+const LinkedListNode = class {
+    constructor(nodeData) {
+        this.data = nodeData;
+        this.next = null;
+    }
+};
 
-    input = input.trim();
-    var newInput = input.split(/[\r\n]+/);
+// Complete the function below
 
-    var noOfQuery = Number(newInput[0]);
-    var num = "";
+function insertNodeAtTail(head, data) {
+    var node = new LinkedListNode(data);
+    if (head == null) {
+        head = node;
+        return head;
+    }
 
-    for (var a = 1; a <= noOfQuery; a++) {
+    let h = head;
+    while (h.next) {
+        h = h.next;
+    }
+    h.next = node;
 
-
-        num += Number(newInput[a]) + " ";
-
-        console.log(num);
-
-
-
-    }//end of Query
-
-}//End of runProgram()
-
-process.stdin.resume();
-process.stdin.setEncoding("ascii");
-let read = ``;
-process.stdin.on("data", function (input) {
-    read += input;
-});
-process.stdin.on("end", function () {
-    read = read.replace(/\n$/, "");
-    read = read.replace(/\n$/, "");
-    runProgram(read);
-});
-process.on("SIGINT", function () {
-    read = read.replace(/\n$/, "");
-    runProgram(read);
-    process.exit(0);
-});//End of program
+    return head;
+}
