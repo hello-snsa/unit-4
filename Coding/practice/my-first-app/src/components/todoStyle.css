@@ -1,0 +1,77 @@
+#todo {
+  font-size: 40px;
+  width: 15%;
+  background-color: rgb(255, 255, 255);
+  margin-right: 60px;
+  padding-top: 10px;
+  border-radius: 20px;
+  height: 75%;
+  /* font-weight: bold; */
+  float: right;
+}
+.map:hover {
+  box-shadow: 2px 2px 1px 1px rgb(32, 32, 32);
+  background-color: rgb(167, 245, 245);
+}
+.float {
+  width: 60%;
+  margin-left: 40px;
+  background-color: rgb(209, 209, 209);
+}
+.div {
+  width: 40%;
+  height: 400px;
+  background-color: rgb(209, 209, 209);
+  margin: auto;
+  margin-top: 50px;
+}
+.map {
+  padding-left: 10px;
+  width: 80%;
+  height: 60px;
+  background-color: white;
+  margin: auto;
+  margin-top: 20px;
+  border-radius: 15px;
+  text-align: left;
+  overflow: hidden;
+  font-size: 30px;
+}
+.div1 {
+  width: 100%;
+  height: 20%;
+  background-color: rgb(209, 209, 209);
+  margin: auto;
+  margin-top: 40px;
+}
+input {
+  padding: 19px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  margin-top: -50px;
+  border-radius: 20px;
+  width: 100%;
+
+  box-sizing: border-box;
+}
+span {
+  width: 20%;
+  background-color: rgb(163, 163, 163);
+  margin-top: 10px;
+  padding-top: 10px;
+  border-radius: 20px;
+  height: 900%;
+  margin-left: 10px;
+}
+
+.append {
+  background-color: rgb(209, 209, 209);
+  height: 80%;
+  width: 100%;
+  overflow: auto;
+
+  /* width */
+}
+::-webkit-scrollbar {
+  width: 0px;
+}

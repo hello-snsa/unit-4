@@ -1,19 +1,24 @@
+import { useEffect, useState } from "react";
+function Counter() {
+    const [count, setCount] = useState(10);
 
-import './counter.css';
-
-
-export default function Counter({ count, name, age, gender }) {
-
-    return (
-        <div className="counterMain">
-            <h1>inside Counter </h1>
-            <h1>Counter value is {count}</h1>
-            <h1>Name is {name}</h1>
-            <h1> Age is {age}  and Gender is : {gender}</h1>
-
-            {count += 10}
-            <h1>Counter updated value is {count}</h1>
-            <h1>Name is {name + " ali"}</h1>
-        </div>
-    )
+    useEffect(() => {
+        const id = setInterval(() => {
+            // console.log(count)
+            setCount(function (prevVal) {
+                if (prevVal === 0) {
+                    clearInterval(id);
+                    return 0;
+                }
+                return prevVal - 2;
+            });
+            // console.log(count)
+        }, 1000);
+        return () => {
+            console.log("unmont");
+            clearInterval(id);
+        };
+    }, []);
+    return <>Counter is: {count}</>;
 }
+export default Counter;
