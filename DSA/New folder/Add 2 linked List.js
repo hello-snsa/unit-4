@@ -39,6 +39,9 @@ var addTwoLinkedList = function (data1, data2) {
     n1 = n1 + n2;
     n1.split(" ").map(Number);
 
+    //n1.join(" "); //on basis of space
+    //head.data=n1;
+    //head.next=null;
 
     temp = head;
 
@@ -62,4 +65,6 @@ while (i < n1.length) {
     i++;
 
 }
+
+return head;
 
