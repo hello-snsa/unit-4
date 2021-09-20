@@ -6,25 +6,60 @@ const LinkedListNode = class {
     }
 };
 
-var addOneToLinkedList = function (head) {
+var addTwoLinkedList = function (data1, data2) {
 
-    let h = head.data;
 
     let temp = head;
-    while (temp.next != null) {
-        temp = temp.next;
+
+    let n1 = num(data1);
+    let n2 = num(data2);
+
+
+    function num(data) {
+
+        let arr = [];
+
+        while (temp.next != null) {
+            arr.push(temp.data);
+
+
+            temp = temp.next;
+
+        }
+
+        arr.push(temp.data);
+        return arr;
+
 
     }
-    let l = temp.data;
-    let res = '';
 
-    for (let i = h; i <= l; i++) {
-        res += i + " ";
+    n1 = n1.join("");
+    n2 = n2.join("");
 
-    }
-    // res=Number(res);
+    n1 = n1 + n2;
+    n1.split(" ").map(Number);
 
-    temp.data = res
-    return temp
+
+    temp = head;
+
+
+    let i = 0;
+    while (temp.next != null)
+
+        temp.data = n1[i]
+    i++;
+    temp = temp.next;
+
 };
+
+while (i < n1.length) {
+    let node = new LinkedListNode(data);
+    node.data = n1[i];
+    node.next = temp.next;
+    temp.next = node;
+
+
+    i++;
+
+}
 
